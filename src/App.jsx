@@ -7,8 +7,22 @@ import './App.css'
 function App() {
   const [pads, setPads] = React.useState(padData)
 
+  function toggle(id){
+    console.log(id);
+    setPads(prevState => prevState.map(item =>
+      item.id === id ? {...item, on: !item.on} : item
+    ))
+    
+  }
+
   const buttonElements = pads.map(pad =>(
-    <Pad key={pad.id} color = {pad.color} on={pad.on}/>
+    <Pad 
+    id = {pad.id}
+    key={pad.id} 
+    color = {pad.color} 
+    on={pad.on}
+    toggle={toggle} 
+      />
   ))
 
   return (

@@ -1,16 +1,16 @@
 import React from "react"
 export default function Pad(props) {
-    const [isOn, setIsOn] = React.useState(props.on)
+    
 
-    function toggle() {
-        setIsOn(prevState => !prevState)
-    }
+    // function toggle() {
+    //     setIsOn(prevState => !prevState)
+    // }
 
     return (
         <button
             style={{ backgroundColor: props.color }}
-            className={isOn ? "on" : "undefined"}
-            onClick={toggle}
+            className={props.on ? "on" : "undefined"}
+            onClick={() =>props.toggle(props.id)}
         ></button>
 
         
